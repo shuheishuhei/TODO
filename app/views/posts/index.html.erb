@@ -1,0 +1,8 @@
+<%= link_to "新しいToDo作成", "/posts/new" %>
+
+<% @posts.each do |post| %>
+タイトル:<%= post.title %>
+内容:<%= post.text%>
+<%= link_to '修正', "/posts/#{post.id}/edit" %>
+<%= link_to '削除', "/posts/#{post.id}", method: :delete %>
+<% end %>
