@@ -1,6 +1,8 @@
 class PostsController < ApplicationController
+  before_action :move_to_index, except: [:index]
+  
   def index
-    @posts = Post.all
+    @posts = Post.includes(:user).order("created_at DESC")
   end
 
   def new
@@ -33,6 +35,13 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :text)
+    # current_userメソッドはdevise導入により使えるメソッド
+    params.require(:post).permit(:title, :text).merge(user_id: current_user.id)
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 end
