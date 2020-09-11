@@ -4,24 +4,34 @@
     <title>Todo</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name='viewport' content= 'width=device-width, initial-scale=1.0'>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.0.10/font-awesome-animation.css" type="text/css" media="all" />
   </head>
 
   <body>
   <header class="header">
-      <div class="header__bar row">
-        <h1 class="grid-6"><a href="/">TODO</a></h1>
+      <div class="headerBar">
+        <h1 class="title"><a href="/">ToDo</a></h1>
         <% if user_signed_in? %>
-          <div class="user_nav grid-6">
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-            <%= link_to "TODO作成", new_post_path, class: "post" %>
+          <div class="toDoCreateLogOut">
+            <%= link_to new_post_path, class: "toDoCreate"  do %>
+              <i class="fas fa-plus faa-bounce animated-hover" ></i>
+            <% end %>
+            <%= link_to destroy_user_session_path, method: :delete, class: "logOut" do %>
+              <i class="fas fa-sign-out-alt faa-bounce animated-hover"></i>
+            <% end %>
           </div>
         <% else %>
-          <div class="grid-6">
-            <%= link_to "ログイン", new_user_session_path, class: "post" %>
-            <%= link_to "新規登録", new_user_registration_path, class: "post" %>
+          <div class="logInSignUp">
+            <%= link_to new_user_session_path, class: "logIn" do %>
+              <i class="fas fa-sign-in-alt faa-bounce animated-hover"></i>
+            <% end %>
+            <%= link_to new_user_registration_path, class: "signUp" do %>
+              <i class="fas fa-user-plus faa-bounce animated-hover"></i>
+            <% end %>
           </div>
         <% end %>
       </div>

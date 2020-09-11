@@ -1,5 +1,7 @@
-<%= form_with(model: @post, local:true) do |f|%>
-<%= f.text_field :title %>
-<%= f.text_area :text %>
-<%= f.submit '更新' %>
-<% end %>
+<div class="editPost">
+  <%= form_with(model: @post, local:true, class: "editForm") do |f|%>
+  <%= f.text_field :title, class: "editTitle" %>
+  <%= f.text_area :text, class: "editText" %>
+  <%= f.submit '更新', class: "editButton"%>
+  <% end %>
+</div>

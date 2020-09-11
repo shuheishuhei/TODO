@@ -1,10 +1,24 @@
-<%= link_to "新しいToDo作成", "/posts/new" %>
-
-<% @posts.each do |post| %>
-<% if user_signed_in? && current_user.id == post.user_id %>
-タイトル:<%= post.title %>
-内容:<%= post.text%>
-<%= link_to '修正', "/posts/#{post.id}/edit" %>
-<%= link_to '削除', "/posts/#{post.id}", method: :delete %>
-<% end %>
-<% end %>
+<div class= "newToDo">
+  <div class="new_post">
+  <% if user_signed_in?%>
+    <%# <%= link_to "ToDo作成", "/posts/new", class: "newToDoLink" %>
+    <h3 class="toDoListTitle"><%= current_user.nickname %>のToDo一覧</h3>
+  <% end %>
+  </div>
+  <ul class="post1">
+    <% @posts.each do |post| %>
+      <% if user_signed_in? && current_user.id == post.user_id %>
+        <li>
+        ・<%= post.title %>
+        : <%= post.text%>
+        <%= link_to "/posts/#{post.id}/edit", class: "postFix" do %>
+          <i class="fas fa-edit faa-pulse animated-hover"></i>
+        <% end %>  
+        <%= link_to "/posts/#{post.id}", method: :delete, class: "postDelete" do %>
+          <i class="fas fa-trash-alt faa-pulse animated-hover"></i>
+        <% end %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

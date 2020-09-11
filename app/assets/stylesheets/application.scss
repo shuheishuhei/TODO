@@ -1,1 +1,53 @@
-@import "bootstrap";
+@import "index";
+@import "reset";
+@import "new";
+@import "registrations/new";
+@import "sessions/new";
+@import "edit";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+@font-face {
+  // font-family: 'togalite-medium';
+  // src: font-url('/assets/togalite-medium.otf');
+  // font-family: 'ShotaroV-AL';
+  // src: font-url('/assets/ShotaroV-AL.otf');
+  font-family: 'fgzerorabaulfont';
+  src: font-url('/assets/fgzerorabaulfont.otf');
+}
+* {
+  text-decoration: none;
+  // font-family: togalite-medium;
+  // font-family: ShotaroV-AL;
+  font-family: fgzerorabaulfont;
+  margin: 0 auto;
+}
+
+.headerBar {
+  display: flex;
+  justify-content: space-between;
+  height: 120px;
+  width: auto;
+  background-color: grey;
+  .title {
+    margin: auto 0px auto 20px;
+    font-size: 60px;
+    color: white;
+  }
+  .toDoCreateLogOut {
+    margin: auto 20px auto 20px;
+    font-size: 40px;
+    color: white;
+    .logOut {
+      margin-left: 10px;
+    }
+  }
+  .logInSignUp {
+    margin: auto 20px auto 20px;
+    font-size: 40px;
+    color: white;
+    .signUp {
+      margin-left: 10px;
+    }
+  }
+}
+

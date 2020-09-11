@@ -1,22 +1,7 @@
-<%= form_with(model: @post, local: true) do |f| %>
-タイトル:<%= f.text_field :title %>
-内容:<%= f.text_area :text %>
-<%= f.submit '作成'%>
-<% end %> 
-
-<%# <form>
-  <div class="form-group">
-    <label for="exampleInputEmail1">タイトル</label>
-    <%= f.text_field :title type="string" class="form-control" id='exampleInputEmail1' aria-describedby='emailHelp' placeholder='入力してください' %>
-    <%# <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="入力してください">
-    
-  </div>
-  <div class="form-group">
-    <label for="exampleInputPassword1">内容</label>
-    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="入力してください">
-  </div>
-  
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
-<% end %> 
+<div class="newPost">
+  <%= form_with(model: @post, local: true, class: "newPostForm") do |f| %>
+  <%= f.text_field :title, class: "newPostFormTitle" ,placeholder: "タイトル" %>
+  <%= f.text_area :text, class:"newPostFormContent", placeholder: "内容"%>
+  <%= f.submit value="作成", class: "newPostFormButton" %>
+  <% end %> 
+</div>
